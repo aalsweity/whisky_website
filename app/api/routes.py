@@ -15,10 +15,10 @@ def getdata():
 @api.route('/inventory', methods = ['POST'])
 @token_required
 def create_whisky(current_user_token):
-    whisky_brand = request.json['whisky brand']
-    whisky_flavor = request.json['whisky flavor']
-    whisky_age = request.json['whisky age']
-    whisky_image = request.json['whisky image']
+    whisky_brand = request.json['whisky_brand']
+    whisky_flavor = request.json['whisky_flavor']
+    whisky_age = request.json['whisky_age']
+    whisky_image = request.json['whisky_image']
     user_token = current_user_token.token
 
     print(f'BIG TESTER: {current_user_token.token}')
@@ -50,10 +50,10 @@ def get_single_whisky(current_user_token, id):
 @token_required
 def update_whisky(current_user_token,id):
     whisky = Whisky.query.get(id) 
-    whisky.whisky_brand = request.json['whisky brand']
-    whisky.whisky_flavor = request.json['whisky flavor']
-    whisky.whisky_age = request.json['whisky age']
-    whisky.whisky_image = request.json['whisky image']
+    whisky.whisky_brand = request.json['whisky_brand']
+    whisky.whisky_flavor = request.json['whisky_flavor']
+    whisky.whisky_age = request.json['whisky_age']
+    whisky.whisky_image = request.json['whisky_image']
     whisky.user_token = current_user_token.token
 
     db.session.commit()
